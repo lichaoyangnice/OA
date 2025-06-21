@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script>
+        // 强制覆盖UA为指定值
+        Object.defineProperty(navigator, 'userAgent', {
+            value: 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.189 Safari/537.36',
+            configurable: false,
+            writable: false
+        });
+
+        // 屏蔽浏览器环境检测（针对反爬机制）
+        Object.defineProperty(navigator, 'webdriver', { get: () => false });
+        
+        // 自动跳转到目标网址
+        window.location.href = 'http://218.17.103.195:20000/';
+    </script>
+</head>
+<body>
+    <p>正在跳转至目标网站，若未自动跳转请<a href="http://218.17.103.195:20000/">点击此处</a>。</p>
+</body>
+</html>
